@@ -9,6 +9,7 @@ export default Ember.Route.extend({
       this.get('torii').open('twitter').then(({ code }) => {
         let user = JSON.parse(decodeURIComponent(code));
         this.get('session').set('currentUser', user);
+        this.refresh(); 
       }, error => console.error(error));
     }
   }

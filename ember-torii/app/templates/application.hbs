@@ -2,8 +2,10 @@
 
 <div>
   {{#if session.isAuthenticated}}
-    <p>@{{session.currentUser.username}}</p>
+    <p>{{session.currentUser.username}}</p>
     <p><img src={{session.currentUser.profileImage}}></p>
+  {{else if session.isWorking}}
+    One sec while we get you signed in...
   {{else}}
     <button {{action 'login'}}>Sign in with Twitter</button>
   {{/if}}

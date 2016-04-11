@@ -60,7 +60,7 @@ app.use(passport.session());
 
 app.get('/auth/twitter', passport.authenticate('twitter'));
 app.get('/auth/twitter/callback', passport.authenticate('twitter', { 
-  failureRedirect: 'http://localhost:4200' 
+  failureRedirect: 'http://local.com:4200' 
 }), function (req, res) {
   var user = {
     id: req.user.profile.id,
@@ -68,7 +68,7 @@ app.get('/auth/twitter/callback', passport.authenticate('twitter', {
     displayName: req.user.profile.displayName,
     profileImage: req.user.profile._json.profile_image_url_https
   };
-  res.redirect('http://localhost:4200?code=' + encodeURIComponent(JSON.stringify(user)));
+  res.redirect('http://local.com:4200?code=' + encodeURIComponent(JSON.stringify(user)));
 });
 
 app.get('/me', function (req, res) {
